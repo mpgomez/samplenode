@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.forgerock.openam</groupId>
-  <artifactId>get-profile-property-node-archetype</artifactId>
-  <version>14.5.0-SNAPSHOT</version>
+  <groupId>org.forgerock.am</groupId>
+  <artifactId>test-node-archetype</artifactId>
+  <version>6.0.0-SNAPSHOT</version>
   <packaging>maven-archetype</packaging>
 
-  <name>get-profile-property-node-archetype</name>
+  <name>test-node-archetype</name>
 
   <build>
     <extensions>
@@ -30,7 +30,7 @@
 
   <description>OpenAM Authentication Trees</description>
 
-  <url>http://www.forgerock.org/openam-auth-trees/get-profile-property-node</url>
+  <url>http://www.forgerock.org/</url>
 
   <licenses>
     <license>
@@ -52,10 +52,10 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:ssh://git@stash.forgerock.org:7999/openam/openam.git/openam-auth-trees/get-profile-property-node</connection>
-    <developerConnection>scm:git:ssh://git@stash.forgerock.org:7999/openam/openam.git/openam-auth-trees/get-profile-property-node</developerConnection>
-    <tag>release/13.0.0</tag>
-    <url>https://stash.forgerock.org/projects/OPENAM/repos/openam/browse/openam-auth-trees/get-profile-property-node</url>
+    <connection>scm:git:ssh://git@github.com:mpgomez/samplenode.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:mpgomez/samplenode.git</developerConnection>
+    <tag>release/6.0.0</tag>
+    <url>https://github.com/mpgomez/samplenode.git</url>
   </scm>
 
   <distributionManagement>

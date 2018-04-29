@@ -1,6 +1,6 @@
-<b>Get Profile Authentication Node</b>
+<b>Test Node</b>
 <br/>
-A simple authentication node that gets user profile attributes and copies them to the authentication tree shared state. Caution: since this node can read to user profile attributes it should only be used towards the end of an authentication journey, after the user has reached a sufficient authentication level.
+Add description
 <br/>
 <br/>
 <b>Installation</b>
@@ -11,12 +11,6 @@ Copy the .jar file from the ../target directory into the ../web-container/webapp
 <b>Usage</b>
 <br/>
 Deploy the node and set appropriate key/value pairs where:
-<br>
-key: name of the users profile attribute (e.g., givenName, sn, employeeNumber)
-<br>
-value: name of an authentication shared state value (e.g., authLevel) or a literal string in quotes (e.g., "Jones")
-<br/>
-<br/>
 <b>To Build</b>
 <br/>
 Edit the necessary TestNode.java as appropriate.  To rebuild, run "mvn clean install" in the directory containing the pom.xml

@@ -36,7 +36,7 @@ import static ${groupId}.auth.node.api.SharedStateConstants.USERNAME;
         configClass = TestNode.Config.class)
 public class TestNode extends SingleOutcomeNode {
 
-    private final static String DEBUG_FILE = "GetProfilePropertyNode";
+    private final static String DEBUG_FILE = "TestNode";
     protected Debug debug = Debug.getInstance(DEBUG_FILE);
     private final CoreWrapper coreWrapper;
 
