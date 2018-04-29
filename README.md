@@ -7,3 +7,8 @@ To use this archetype:
 the archetype in your local archetype catalog (${HOME}/.m2/repository)
 3. Use it! For example, if you are using intelliJ IDEA, create a new prject->
 Maven-> click "Create from archetype"
+
+![ScreenShot](./archetype_config.png)
+
+Now you have the basics, and you only need to implement the specific logic you
+want in your new authentication node. Enjoy!
