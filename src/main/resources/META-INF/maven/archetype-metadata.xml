@@ -53,4 +53,9 @@
       </includes>
     </fileSet>
   </fileSets>
+  <requiredProperties>
+    <requiredProperty key="className">
+      <defaultValue>Demo</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
 </archetype-descriptor>

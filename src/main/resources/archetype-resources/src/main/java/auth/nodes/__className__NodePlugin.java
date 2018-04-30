@@ -1,10 +1,10 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package};
+
+package org.forgerock.openam.auth.nodes;
 
 import static java.util.Arrays.asList;
-import static ${groupId}.core.realms.Realm.root;
 
 import javax.inject.Inject;
 
@@ -19,7 +19,7 @@ import com.sun.identity.sm.SMSException;
 /**
  * Core nodes installed by default with no engine dependencies.
  */
-public class TestNodePlugin extends AbstractNodeAmPlugin {
+public class ${className}NodePlugin extends AbstractNodeAmPlugin {
 
     private final AnnotatedServiceRegistry serviceRegistry;
 
@@ -28,7 +28,7 @@ public class TestNodePlugin extends AbstractNodeAmPlugin {
      * @param serviceRegistry A service registry instance.
      */
     @Inject
-    public TestNodePlugin(AnnotatedServiceRegistry serviceRegistry) {
+    public ${className}NodePlugin(AnnotatedServiceRegistry serviceRegistry) {
         this.serviceRegistry = serviceRegistry;
     }
 
@@ -47,7 +47,7 @@ public class TestNodePlugin extends AbstractNodeAmPlugin {
     @Override
     protected Iterable<? extends Class<? extends Node>> getNodes() {
         return asList(
-                TestNode.class
+                ${className}Node.class
         );
     }
 }

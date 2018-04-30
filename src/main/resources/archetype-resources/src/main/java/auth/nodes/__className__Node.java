@@ -10,7 +10,7 @@
  * to such license between the licensee and ForgeRock AS.
  */
 
-package ${package};
+package org.forgerock.openam.auth.nodes;
 
 import com.google.inject.assistedinject.Assisted;
 import com.iplanet.sso.SSOException;
@@ -33,9 +33,10 @@ import static ${groupId}.auth.node.api.SharedStateConstants.USERNAME;
  * A node which contributes a configurable set of properties to be added to the user's session, if/when it is created.
  */
 @Node.Metadata(outcomeProvider = SingleOutcomeNode.OutcomeProvider.class,
-        configClass = TestNode.Config.class)
-public class TestNode extends SingleOutcomeNode {
+        configClass = ${className}Node.Config.class)
+public class ${className}Node extends SingleOutcomeNode {
 
+    // TODO logs
     private final static String DEBUG_FILE = "TestNode";
     protected Debug debug = Debug.getInstance(DEBUG_FILE);
     private final CoreWrapper coreWrapper;
@@ -54,7 +55,7 @@ public class TestNode extends SingleOutcomeNode {
      * @param config Node configuration.
      */
     @Inject
-    public TestNode(@Assisted Config config, CoreWrapper coreWrapper) {
+    public ${className}Node(@Assisted Config config, CoreWrapper coreWrapper) {
         this.config = config;
         this.coreWrapper = coreWrapper;
     }
@@ -64,5 +65,7 @@ public class TestNode extends SingleOutcomeNode {
         // Node logic here
         return goToNext().build();
     }
+
+    //TODO audit
 
 }
