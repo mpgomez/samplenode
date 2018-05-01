@@ -10,7 +10,6 @@ Copy the .jar file from the ../target directory into the ../web-container/webapp
 <br/>
 <b>Usage</b>
 <br/>
-Deploy the node and set appropriate key/value pairs where:
 <b>To Build</b>
 <br/>
 Edit the necessary TestNode.java as appropriate.  To rebuild, run "mvn clean install" in the directory containing the pom.xml

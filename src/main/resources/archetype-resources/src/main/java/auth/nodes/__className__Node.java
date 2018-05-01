@@ -33,6 +33,10 @@ import static ${groupId}.auth.node.api.SharedStateConstants.USERNAME;
 
 /**
  * A node which contributes a configurable set of properties to be added to the user's session, if/when it is created.
+ * You can extend:
+ * SingleOutcomeNode
+ * AbstractDecisionNode
+ * Or directly implement the Node interface.
  */
 @Node.Metadata(outcomeProvider = SingleOutcomeNode.OutcomeProvider.class,
         configClass = ${className}Node.Config.class)
@@ -46,8 +50,14 @@ public class ${className}Node extends SingleOutcomeNode {
 
     /**
      * Configuration for the node.
+     * It can have as many attributes as needed, or none.
      */
     public interface Config {
+
+        @Attribute(order = 100)
+        default ${className}ExampleEnum ${className}Action() {
+            return ${className}ExampleEnum.FALSE;
+        }
     }
 
     private final Config config;
@@ -86,6 +96,7 @@ public class ${className}Node extends SingleOutcomeNode {
         // Node logic here
         // This is an example of how to use the logger
         logger.debug("${className}Node started");
+        logger.debug("Our attribute is: " + config.DemoAction());
         return goToNext().build();
     }
 
@@ -96,5 +107,23 @@ public class ${className}Node extends SingleOutcomeNode {
         return json(object(field("key", "value"))));
     }
      */
+
+    /**
+     * Config state example
+     */
+    public enum ${className}ExampleEnum  {
+        FALSE(false),
+        TRUE(true);
+
+        private final boolean isTrue;
+
+        ${className}ExampleEnum (boolean isTrue) {
+            this.isTrue = isTrue;
+        }
+
+        public boolean isTrue() {
+            return isTrue;
+        }
+    }
 
 }
