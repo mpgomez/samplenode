@@ -6,4 +6,4 @@
 # to such license between the licensee and ForgeRock AS.
 #
 
-org.forgerock.openam.auth.nodes.TestNodePlugin
+org.forgerock.openam.auth.nodes.${className}NodePlugin

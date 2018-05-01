@@ -15,12 +15,14 @@ package org.forgerock.openam.auth.nodes;
 import com.google.inject.assistedinject.Assisted;
 import com.iplanet.sso.SSOException;
 import com.sun.identity.idm.*;
-import com.sun.identity.shared.debug.Debug;
 import org.forgerock.json.JsonValue;
 import ${groupId}.annotations.sm.Attribute;
 import ${groupId}.auth.node.api.*;
 import ${groupId}.core.CoreWrapper;
 import ${groupId}.utils.CollectionUtils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import java.util.*;
@@ -36,10 +38,10 @@ import static ${groupId}.auth.node.api.SharedStateConstants.USERNAME;
         configClass = ${className}Node.Config.class)
 public class ${className}Node extends SingleOutcomeNode {
 
-    // TODO logs
-    private final static String DEBUG_FILE = "TestNode";
-    protected Debug debug = Debug.getInstance(DEBUG_FILE);
     private final CoreWrapper coreWrapper;
+    private final Logger logger = LoggerFactory.getLogger("amAuth");
+    private static final String BUNDLE = ${className}Node.class.getName().replace(".",
+        "/");
 
 
     /**
@@ -50,9 +52,14 @@ public class ${className}Node extends SingleOutcomeNode {
 
     private final Config config;
 
-    /**
+    /*
      * Constructs a new GetSessionPropertiesNode instance.
-     * @param config Node configuration.
+     * We can have Assisted:
+     * * Config config
+     * * UUID nodeId
+     *
+     * We may want to Inject:
+     * CoreWrapper
      */
     @Inject
     public ${className}Node(@Assisted Config config, CoreWrapper coreWrapper) {
@@ -60,12 +67,34 @@ public class ${className}Node extends SingleOutcomeNode {
         this.coreWrapper = coreWrapper;
     }
 
+    /*
+     * From the context you will be able to access:
+     * Callbacks
+     * Shared State
+     * Transient State
+     *
+     * We have certain Actions prefefined that we can use:
+     * send -> send a callback
+     * goTo -> go to a different node
+     *
+     * Look into ActionBuilder to see how to:
+     * update shared state
+     * add session hooks -> classes that will be executed post-authentication.
+     */
     @Override
     public Action process(TreeContext context) {
         // Node logic here
+        // This is an example of how to use the logger
+        logger.debug("${className}Node started");
         return goToNext().build();
     }
 
-    //TODO audit
+    /* Override this function if you want to add custom audit logs for this node.
+     *
+    @Override
+    public JsonValue getAuditEntryDetail() {
+        return json(object(field("key", "value"))));
+    }
+     */
 
 }
