@@ -21,30 +21,6 @@
         <include>**/*.AmPlugin</include>
       </includes>
     </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>.idea/libraries</directory>
-      <includes>
-        <include>**/*.xml</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>.idea</directory>
-      <includes>
-        <include>**/*.xml</include>
-      </includes>
-    </fileSet>
-    <fileSet encoding="UTF-8">
-      <directory>.idea</directory>
-      <includes>
-        <include>**/*.name</include>
-      </includes>
-    </fileSet>
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>profiles.xml</include>
-      </includes>
-    </fileSet>
     <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
@@ -54,8 +30,7 @@
     </fileSet>
   </fileSets>
   <requiredProperties>
-    <requiredProperty key="className">
-      <defaultValue>Demo</defaultValue>
+    <requiredProperty key="nodeName">
     </requiredProperty>
   </requiredProperties>
 </archetype-descriptor>

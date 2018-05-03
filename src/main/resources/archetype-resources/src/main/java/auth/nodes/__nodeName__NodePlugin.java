@@ -2,16 +2,16 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
 
-package org.forgerock.openam.auth.nodes;
+package ${package}.auth.nodes;
 
 import static java.util.Arrays.asList;
 
 import javax.inject.Inject;
 
-import ${groupId}.auth.node.api.AbstractNodeAmPlugin;
-import ${groupId}.auth.node.api.Node;
-import ${groupId}.plugins.PluginException;
-import ${groupId}.sm.AnnotatedServiceRegistry;
+import org.forgerock.openam.auth.node.api.AbstractNodeAmPlugin;
+import org.forgerock.openam.auth.node.api.Node;
+import org.forgerock.openam.plugins.PluginException;
+import org.forgerock.openam.sm.AnnotatedServiceRegistry;
 
 import com.iplanet.sso.SSOException;
 import com.sun.identity.sm.SMSException;
@@ -19,7 +19,7 @@ import com.sun.identity.sm.SMSException;
 /**
  * Core nodes installed by default with no engine dependencies.
  */
-public class ${className}NodePlugin extends AbstractNodeAmPlugin {
+public class ${nodeName}NodePlugin extends AbstractNodeAmPlugin {
 
     private final AnnotatedServiceRegistry serviceRegistry;
 
@@ -28,7 +28,7 @@ public class ${className}NodePlugin extends AbstractNodeAmPlugin {
      * @param serviceRegistry A service registry instance.
      */
     @Inject
-    public ${className}NodePlugin(AnnotatedServiceRegistry serviceRegistry) {
+    public ${nodeName}NodePlugin(AnnotatedServiceRegistry serviceRegistry) {
         this.serviceRegistry = serviceRegistry;
     }
 
@@ -47,7 +47,7 @@ public class ${className}NodePlugin extends AbstractNodeAmPlugin {
     @Override
     protected Iterable<? extends Class<? extends Node>> getNodes() {
         return asList(
-                ${className}Node.class
+                ${nodeName}Node.class
         );
     }
 }
