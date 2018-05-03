@@ -10,16 +10,18 @@
  * to such license between the licensee and ForgeRock AS.
  */
 
-package org.forgerock.openam.auth.nodes;
+package ${package}.auth.nodes;
 
 import com.google.inject.assistedinject.Assisted;
 import com.iplanet.sso.SSOException;
 import com.sun.identity.idm.*;
 import org.forgerock.json.JsonValue;
-import ${groupId}.annotations.sm.Attribute;
-import ${groupId}.auth.node.api.*;
-import ${groupId}.core.CoreWrapper;
-import ${groupId}.utils.CollectionUtils;
+import org.forgerock.openam.annotations.sm.Attribute;
+import org.forgerock.openam.auth.node.api.*;
+import org.forgerock.openam.core.CoreWrapper;
+import org.forgerock.openam.utils.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,36 +29,35 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 import java.util.*;
 
-import static ${groupId}.auth.node.api.SharedStateConstants.AUTH_LEVEL;
-import static ${groupId}.auth.node.api.SharedStateConstants.REALM;
-import static ${groupId}.auth.node.api.SharedStateConstants.USERNAME;
+import static org.forgerock.openam.auth.node.api.SharedStateConstants.AUTH_LEVEL;
+import static org.forgerock.openam.auth.node.api.SharedStateConstants.REALM;
+import static org.forgerock.openam.auth.node.api.SharedStateConstants.USERNAME;
 
 /**
- * A node which contributes a configurable set of properties to be added to the user's session, if/when it is created.
+ * A ${nodeName} node.
  * You can extend:
  * SingleOutcomeNode
  * AbstractDecisionNode
  * Or directly implement the Node interface.
  */
 @Node.Metadata(outcomeProvider = SingleOutcomeNode.OutcomeProvider.class,
-        configClass = ${className}Node.Config.class)
-public class ${className}Node extends SingleOutcomeNode {
+        configClass = ${nodeName}Node.Config.class)
+public class ${nodeName}Node extends SingleOutcomeNode {
 
     private final CoreWrapper coreWrapper;
-    private final Logger logger = LoggerFactory.getLogger("amAuth");
-    private static final String BUNDLE = ${className}Node.class.getName().replace(".",
-        "/");
-
+    private final Logger logger = LoggerFactory.getLogger(${nodeName}Node.class);
+    private static final String BUNDLE = ${nodeName}Node.class.getName().replace(".", "/");
 
     /**
      * Configuration for the node.
      * It can have as many attributes as needed, or none.
      */
     public interface Config {
-
+        // Example enumerated value
         @Attribute(order = 100)
-        default ${className}ExampleEnum ${className}Action() {
-            return ${className}ExampleEnum.FALSE;
+        default ExampleEnum example() {
+            // implemented as a default method as there is a default value
+            return ExampleEnum.FALSE;
         }
     }
 
@@ -72,7 +73,7 @@ public class ${className}Node extends SingleOutcomeNode {
      * CoreWrapper
      */
     @Inject
-    public ${className}Node(@Assisted Config config, CoreWrapper coreWrapper) {
+    public ${nodeName}Node(@Assisted Config config, CoreWrapper coreWrapper) {
         this.config = config;
         this.coreWrapper = coreWrapper;
     }
@@ -96,7 +97,7 @@ public class ${className}Node extends SingleOutcomeNode {
         // Node logic here
         // This is an example of how to use the logger
         logger.debug("${className}Node started");
-        logger.debug("Our attribute is: " + config.DemoAction());
+        logger.debug("Our attribute is: " + config.example());
         return goToNext().build();
     }
 
@@ -111,13 +112,13 @@ public class ${className}Node extends SingleOutcomeNode {
     /**
      * Config state example
      */
-    public enum ${className}ExampleEnum  {
+    public enum ExampleEnum  {
         FALSE(false),
         TRUE(true);
 
         private final boolean isTrue;
 
-        ${className}ExampleEnum (boolean isTrue) {
+        private ExampleEnum(boolean isTrue) {
             this.isTrue = isTrue;
         }
 
